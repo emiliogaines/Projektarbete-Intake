@@ -1,0 +1,40 @@
+.card {
+  margin-top: 20px !important;
+}
+
+.linearProgress {
+  margin-top: 10px !important;
+}
+
+.profilePicture {
+  margin-right: 20px !important;
+  width: 50px;
+  height: 50px;
+  padding: 5px !important;
+}
+
+.fabIcon {
+  padding-right: 10px !important;
+}
+
+.cardContainer {
+  padding: 20px !important;
+}
+
+.foodTextContainer {
+  margin-top: 200px !important;
+  text-align: center;
+}
+
+.foodIcon {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.fullWidth {
+  width: 100% !important;
+}
+
+.chip {
+  margin-right: 8px !important;
+}

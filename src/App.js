@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { LoginTheme } from "./Theme/Theme";
+import Login from "./Components/Login/Login";
+import Home from "./Components/Home/Home";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from "react";
+import { Container } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core/styles";
+
+const containerClass = "container";
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <Container
+        maxWidth={false}
+        disableGutters={true}
+        className={containerClass}
+      >
+        <ThemeProvider theme={LoginTheme}>
+          <Login />
+        </ThemeProvider>
+      </Container>
+    );
+  }
 }
-
-export default App;
+//use stepper
