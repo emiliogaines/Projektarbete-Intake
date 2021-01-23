@@ -27,8 +27,20 @@
 }
 
 .foodIcon {
-  width: 25px !important;
-  height: 25px !important;
+  max-width: 50px !important;
+  width: auto !important;
+  height: 100% !important;
+  max-height: 50px !important;
+}
+
+.foodDiv {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.foodIconFontAwesome {
+  width: 40px !important;
+  height: 40px !important;
 }
 
 .fullWidth {
@@ -37,4 +49,18 @@
 
 .chip {
   margin-right: 8px !important;
+}
+
+.MuiCardHeader-root {
+  align-items: flex-start !important;
+}
+
+.MuiCardMedia-root {
+  height: 60px !important;
+  border-radius: 25px !important;
+  background-size: contain !important;
+}
+
+.MuiChip-icon {
+  margin-left: 10px !important;
 }

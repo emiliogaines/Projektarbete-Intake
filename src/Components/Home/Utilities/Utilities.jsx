@@ -15,11 +15,12 @@ import {
   faHotdog as IconExtraHotdog,
   faLemon as IconExtraLemon,
 } from "@fortawesome/free-solid-svg-icons";
-import { isSameDay } from "date-fns";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { isSameDay, parseISO } from "date-fns";
 import { GreenTheme, OrangeTheme, RedTheme } from "../../../Theme/Theme";
 
 class Utilities {
-  static getIcon = (type, name) => {
+  static getIconSvg = (type, name) => {
     name = name.toLowerCase().trim();
     type = type.toLowerCase().trim();
 
@@ -42,6 +43,18 @@ class Utilities {
     if (type === "drink") return IconDrink;
     if (type === "snack") return IconSnack;
     return IconOther;
+  };
+
+  static getIcon = (type, name, api) => {
+    const ClassFoodIcon = "foodIcon";
+    const ClassFoodIconFontAwesome = "foodIconFontAwesome";
+
+    if (!api) {
+      var icon = Utilities.getIconSvg(type, name);
+      return <FontAwesomeIcon icon={icon} color={Utilities.getColor(icon)} className={ClassFoodIconFontAwesome} />;
+    } else {
+      return <img src={api.photo.thumb} alt={api.tag_name} className={ClassFoodIcon} />;
+    }
   };
 
   static getColor = (icon) => {
@@ -73,6 +86,13 @@ class Utilities {
     }
   };
 
+  static getColorFromType = (type) => {
+    if (type === "food") return Color.GREEN;
+    if (type === "drink") return Color.BLUE;
+    if (type === "snack") return Color.BROWN;
+    return Color.BLACK;
+  };
+
   static getTimeFromEpoch = (time) => {
     let date = new Date(time).toTimeString().split(" ")[0];
     date = date.substr(0, date.lastIndexOf(":"));
@@ -81,9 +101,9 @@ class Utilities {
 
   static getCalories = (context) => {
     let calories = 0;
-    for (let food of context.state.foodItems) {
-      if (isSameDay(food.date, context.state.selectedDate)) {
-        calories += parseInt(food.kcal);
+    for (let food of context.state.user.foodItems) {
+      if (isSameDay(parseISO(food.time), context.state.selectedDate)) {
+        calories += parseInt(food.calories);
       }
     }
     return calories;
@@ -91,14 +111,14 @@ class Utilities {
 
   static updateCalories = (context) => {
     let calories = 0;
-    for (let item of context.state.foodItems) {
-      if (isSameDay(item.date, context.state.selectedDate)) {
-        calories += parseInt(item.kcal);
+    for (let item of context.state.user.foodItems) {
+      if (isSameDay(parseISO(item.time), context.state.selectedDate)) {
+        calories += parseInt(item.calories);
       }
     }
 
     context.setState((prevState) => ({
-      User: { ...prevState.User, currentKcalIntake: calories },
+      user: { ...prevState.user, currentCalorieIntake: calories },
     }));
   };
 
@@ -113,33 +133,47 @@ class Utilities {
   };
 }
 
+class HttpUtilities {
+  static generateRequestOptions = (bodyObject) => {
+    bodyObject = this.convertObjectToLowerCase(bodyObject);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bodyObject),
+    };
+    return requestOptions;
+  };
+
+  static convertObjectToLowerCase(obj) {
+    var key,
+      keys = Object.keys(obj);
+    var n = keys.length;
+    var newobj = {};
+    while (n--) {
+      key = keys[n];
+      newobj[key.toLowerCase()] = obj[key];
+    }
+    return newobj;
+  }
+}
+
 class UserUtilities {
   static getPercentageOfWeight = (context) => {
-    let difference =
-      context.state.User.startWeight - context.state.User.targetWeight;
-    let differenceCurrent =
-      context.state.User.currentWeight - context.state.User.targetWeight;
-    return Math.min(differenceCurrent / difference, 1) * 100;
+    let difference = context.state.user.startWeight - context.state.user.targetWeight;
+    let differenceCurrent = context.state.user.currentWeight - context.state.user.targetWeight;
+    return Math.min(differenceCurrent / difference, 1) * 100 || 0;
   };
 
   static getPercentageOfWeightText = (context) => {
-    let difference =
-      context.state.User.startWeight - context.state.User.targetWeight;
-    let differenceCurrent =
-      context.state.User.currentWeight - context.state.User.targetWeight;
-    return Math.max(differenceCurrent / difference, 0) * 100;
+    let difference = context.state.user.startWeight - context.state.user.targetWeight;
+    let differenceCurrent = context.state.user.currentWeight - context.state.user.targetWeight;
+    return Math.max(differenceCurrent / difference, 0) * 100 || 0;
   };
 
-  static getPercentageOfKcal = (context) => {
-    return (
-      Math.min(
-        context.state.User.currentKcalIntake /
-          context.state.User.targetKcalIntake,
-        1
-      ) * 100
-    );
+  static getPercentageOfCalories = (context) => {
+    return Math.min(context.state.user.currentCalorieIntake / context.state.user.targetCalorieIntake, 1) * 100;
   };
 }
 
 export default Utilities;
-export { Utilities, UserUtilities };
+export { Utilities, UserUtilities, HttpUtilities };

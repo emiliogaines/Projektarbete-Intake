@@ -12,20 +12,16 @@ import {
   InputAdornment,
 } from "@material-ui/core";
 
+import { HttpUtilities } from "../Utilities/Utilities";
 import { Type } from "../../../Constants/Constants.tsx";
 
 export default function SettingsDialog(props) {
+  const [isLoading, setLoading] = React.useState(false);
   const [name, setName] = React.useState(props.user.name);
   const [startWeight, setStartWeight] = React.useState(props.user.startWeight);
-  const [currentWeight, setCurrentWeight] = React.useState(
-    props.user.currentWeight
-  );
-  const [targetWeight, setTargetWeight] = React.useState(
-    props.user.targetWeight
-  );
-  const [targetKcalIntake, setTargetKcalIntake] = React.useState(
-    props.user.targetKcalIntake
-  );
+  const [currentWeight, setCurrentWeight] = React.useState(props.user.currentWeight);
+  const [targetWeight, setTargetWeight] = React.useState(props.user.targetWeight);
+  const [targetKcalIntake, setTargetKcalIntake] = React.useState(props.user.targetCalorieIntake);
   const [useMetric, setMetric] = React.useState(props.user.useMetric);
 
   const handleChangeName = (event) => {
@@ -52,15 +48,26 @@ export default function SettingsDialog(props) {
     setMetric(!useMetric);
   };
 
-  const handleClose = () => {
-    props.onClose(
-      name,
-      startWeight,
-      currentWeight,
-      targetWeight,
-      targetKcalIntake,
-      useMetric
-    );
+  const handleClose = async () => {
+    setLoading(true);
+
+    const requestOptions = HttpUtilities.generateRequestOptions({
+      Id: props.user.id,
+      Name: name,
+      StartWeight: startWeight,
+      CurrentWeight: currentWeight,
+      TargetWeight: targetWeight,
+      TargetCalorieIntake: targetKcalIntake,
+      UseMetric: useMetric,
+      Email: props.user.email,
+      Hash: props.user.hash,
+    });
+
+    let http = await fetch("https://localhost:44307/api/user/" + props.user.id, requestOptions);
+    setLoading(false);
+    if (http.ok) {
+      props.onClose(name, startWeight, currentWeight, targetWeight, targetKcalIntake, useMetric);
+    }
   };
 
   const handleCloseCancel = () => {
@@ -84,30 +91,35 @@ export default function SettingsDialog(props) {
 
   const fields = [
     {
+      id: 1,
       value: name,
       handler: handleChangeName,
       label: "Name",
       unit: Type.NULL,
     },
     {
+      id: 2,
       value: startWeight,
       handler: handleChangeStartWeight,
       label: "Start weight",
       unit: Type.WEIGHT,
     },
     {
+      id: 3,
       value: currentWeight,
       handler: handleChangeCurrentWeight,
       label: "Current weight",
       unit: Type.WEIGHT,
     },
     {
+      id: 4,
       value: targetWeight,
       handler: handleChangeTargetWeight,
       label: "Target weight",
       unit: Type.WEIGHT,
     },
     {
+      id: 5,
       value: targetKcalIntake,
       handler: handleChangeTargetKcalIntake,
       label: "Target intake",
@@ -120,16 +132,10 @@ export default function SettingsDialog(props) {
       <Dialog open={props.open} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Settings</DialogTitle>
         <DialogContent>
-          <Grid
-            container
-            direction="column"
-            justify="flex-start"
-            alignItems="stretch"
-            spacing={1}
-          >
+          <Grid container direction="column" justify="flex-start" alignItems="stretch" spacing={1}>
             {fields.map((field) => {
               return (
-                <Grid item key={field}>
+                <Grid item key={field.id}>
                   <TextField
                     autoFocus
                     margin="dense"
@@ -140,33 +146,27 @@ export default function SettingsDialog(props) {
                     onChange={field.handler}
                     fullWidth
                     InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          {getUnit(field)}
-                        </InputAdornment>
-                      ),
+                      endAdornment: <InputAdornment position="end">{getUnit(field)}</InputAdornment>,
                     }}
                   />
                 </Grid>
               );
             })}
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={useMetric}
-                  onChange={handleChangeUseMetric}
-                  color="primary"
-                />
-              }
-              label="Use metric"
-            />
+            <Grid item>
+              <FormControlLabel control={<Checkbox checked={useMetric} onChange={handleChangeUseMetric} color="primary" />} label="Use metric" />
+            </Grid>
+            <Grid item>
+              <Button variant="contained" color="primary" disableElevation onClick={props.onLogout}>
+                Log out
+              </Button>
+            </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseCancel} color="primary">
+          <Button onClick={handleCloseCancel} disabled={isLoading} color="primary">
             CANCEL
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} disabled={isLoading} color="primary">
             SAVE
           </Button>
         </DialogActions>
