@@ -43,8 +43,6 @@ namespace Projektarbete_Intake_Backend.HTTP
             }
             catch (Exception exception)
             {
-                Console.WriteLine("Exception Hit------------");
-                Console.WriteLine(exception);
                 return null;
             }
         }

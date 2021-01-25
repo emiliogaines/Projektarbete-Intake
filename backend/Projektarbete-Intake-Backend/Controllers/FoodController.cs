@@ -62,8 +62,10 @@ namespace Projektarbete_Intake_Backend.Controllers
             else
             {
                 item.ApiData = await HTTP.Http.Search(item.Name);
-                _context.ApiItems.Add(new ApiItem(item.ApiData, item.Name));
-                await _context.SaveChangesAsync();
+                if(item.ApiData != null) { 
+                    _context.ApiItems.Add(new ApiItem(item.ApiData, item.Name));
+                    await _context.SaveChangesAsync();
+                }
             }
             
             return Ok(Message.Response(item));
