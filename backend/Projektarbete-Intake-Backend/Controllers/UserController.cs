@@ -55,7 +55,7 @@ namespace Projektarbete_Intake_Backend.Controllers
         }
 
 
-        private bool UserItemExists(long id)
+        public bool UserItemExists(long id)
         {
             return _context.UserItems.Any(e => e.Id == id);
         }

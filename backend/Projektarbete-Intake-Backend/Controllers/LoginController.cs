@@ -42,7 +42,7 @@ namespace Projektarbete_Intake_Backend.Controllers
             }
         }
 
-        private UserItem FetchUser(string email)
+        public UserItem FetchUser(string email)
         {
             return _context.UserItems.FirstOrDefault(user => user.Email == email);
         }

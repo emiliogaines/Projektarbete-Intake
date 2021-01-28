@@ -2,7 +2,6 @@ import { LoginTheme } from "./Theme/Theme";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import Loading from "./Components/Loading/Loading";
-import { Fade } from "react-reveal";
 
 import { HttpUtilities } from "./Components/Home/Utilities/Utilities";
 
