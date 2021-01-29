@@ -94,7 +94,14 @@ export default class Login extends React.Component {
         password: this.state.inputPassword,
       });
 
-      let http = await fetch("https://localhost:44307/api/login/", requestOptions);
+      let http;
+      try {
+        http = await fetch("https://localhost:44307/api/login/", requestOptions);
+      } catch (e) {
+        AbortWithError();
+        return;
+      }
+
       let json = await http.json();
       if (http.ok) {
         bake_cookie("logincredentials", {
@@ -122,7 +129,14 @@ export default class Login extends React.Component {
         passwordagain: this.state.inputPasswordAgain,
       });
 
-      let http = await fetch("https://localhost:44307/api/register/", requestOptions);
+      let http;
+      try {
+        http = await fetch("https://localhost:44307/api/register/", requestOptions);
+      } catch (e) {
+        AbortWithError();
+        return;
+      }
+
       let json = await http.json();
       if (http.ok) {
         bake_cookie("logincredentials", {
