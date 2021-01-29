@@ -24,7 +24,7 @@ namespace Projektarbete_Intake_Backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<ILogin>> Post(ILogin user)
+        public async Task<ActionResult<ILogin>> Post(JsonLogin user)
         {
             UserItem fetchedUser = FetchUser(user.Email);
             if(fetchedUser == null)

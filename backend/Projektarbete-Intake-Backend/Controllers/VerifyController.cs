@@ -22,7 +22,7 @@ namespace Projektarbete_Intake_Backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<IVerify>> Post(IVerify user)
+        public async Task<ActionResult<IVerify>> Post(JsonVerify user)
         {
             UserItem fetchedUser = FetchUser(user.Email);
             if (fetchedUser == null)

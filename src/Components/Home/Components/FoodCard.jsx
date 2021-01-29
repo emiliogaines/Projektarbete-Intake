@@ -44,9 +44,10 @@ export default function FoodCard(props) {
   let icon = Utilities.getIconSvg(props.food.type, props.food.name);
   let chips = [props.food.type];
   if (api != null) {
-    if ("serving_qty" in api && "serving_unit" in api) {
+    // Feature removed
+    /* if ("serving_qty" in api && "serving_unit" in api) {
       chips.push(api.serving_qty + " " + api.serving_unit);
-    }
+    } */
     if ("tag_name" in api) {
       chips.push(api.tag_name);
     }

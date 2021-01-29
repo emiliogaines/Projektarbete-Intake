@@ -72,7 +72,7 @@ namespace Projektarbete_Intake_Backend.Controllers
 
         // DELETE: api/Food/5
         [HttpPost("{id}")]
-        public async Task<ActionResult<FoodItemApi>> DeleteFoodItem(long id, IVerify userVerify)
+        public async Task<ActionResult<FoodItemApi>> DeleteFoodItem(long id, JsonVerify userVerify)
         {
             if (!Helpers.Account.Verify(_context, userVerify.Email, userVerify.Hash)) return BadRequest(Message.Response("Not authorized.", Message.Field.NONE));
             FoodItemApi foodItem = await _context.FoodItems.FindAsync(id);
