@@ -1,4 +1,4 @@
-# Intake (Projektarbete)
+# Intake (Projektarbete, Frontend och Backend)
 
 Detta projekt är skapat för att underlätta att hålla koll på kalorier som intas.
 
