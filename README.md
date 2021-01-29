@@ -4,7 +4,7 @@ Detta projekt är skapat för att underlätta att hålla koll på kalorier som i
 
 ### Köra projektet
 
-För att köra applikationen, börja med att öppna och köra Visual Studio projektet i backend. 'backend/projektarbete-backend.sln'.
+För att köra applikationen, börja med att öppna och köra Visual Studio projektet i [backend](https://github.com/emiliogaines/Projektarbete-Intake-Backend).
 
 
 Därefter, navigera till applikationens root-mapp och kör följande kommandon i följd:
