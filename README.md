@@ -1,6 +1,6 @@
 # Intake (Projektarbete)
 
-Detta projekt är skapat för att underlätta att hålla koll på kalorier som äts.
+Detta projekt är skapat för att underlätta att hålla koll på kalorier som intas.
 
 ### Köra projektet
 
