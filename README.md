@@ -4,7 +4,7 @@ Detta projekt är skapat för att underlätta att hålla koll på kalorier som i
 
 ### Köra projektet
 
-För att köra applikationen, börja med att öppna och köra Visual Studio projektet 'backend/projektarbete-backend.sln'.
+För att köra applikationen, börja med att öppna och köra Visual Studio projektet i backend. 'backend/projektarbete-backend.sln'.
 
 
 Därefter, navigera till applikationens root-mapp och kör följande kommandon i följd:
@@ -20,3 +20,6 @@ Detta projekt använder sig utav *Single-responsibility principle*-principen dä
 ### Design Pattern
 Projektet använder många varianter utav både User samt Food objekt. Dessa har ibland extra fält, såsom hashade lösenord eller användar-id.
 På grund utav att man ska undvika att skapa nya objekt hela tiden har det implementerats Mapper Pattern, även känd som Translator Pattern.
+
+## Backend
+Projektets backend finner du [Här](https://github.com/emiliogaines/Projektarbete-Intake-Backend).
