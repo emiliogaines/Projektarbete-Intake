@@ -153,6 +153,10 @@ C:\Users\Mio\source\repos\Projektarbete-Intake-Backend\Projektarbete-Intake-Back
 C:\Users\Mio\source\repos\Projektarbete-Intake-Backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
 C:\Users\Mio\source\repos\Projektarbete-Intake-Backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 C:\Users\Mio\source\repos\Projektarbete-Intake-Backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.AssemblyInfoInputs.cache
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.AssemblyInfo.cs
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.csproj.CoreCompileInputs.cache
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.exe
@@ -296,10 +300,6 @@ C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\back
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.csprojAssemblyReference.cache
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.AssemblyInfoInputs.cache
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.AssemblyInfo.cs
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.csproj.CoreCompileInputs.cache
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\staticwebassets\Projektarbete-Intake-Backend.StaticWebAssets.Manifest.cache
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\staticwebassets\Projektarbete-Intake-Backend.StaticWebAssets.xml
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\Projektarbete-Intake-Backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\Projektarbete-Intake-Backend.styles.css

@@ -40,7 +40,7 @@ namespace Projektarbete_Intake_Backend.Response
             return JsonConvert.SerializeObject(returnMessage);
         }
 
-        public static string Response(FoodItem food)
+        public static string Response(FoodItemApi food)
         {
             MessageContainerFood returnMessage = new MessageContainerFood(food);
             return JsonConvert.SerializeObject(returnMessage);
@@ -70,9 +70,9 @@ namespace Projektarbete_Intake_Backend.Response
 
         private class MessageContainerFood
         {
-            public FoodItem food { get; set; }
+            public FoodItemApi food { get; set; }
 
-            public MessageContainerFood(FoodItem food)
+            public MessageContainerFood(FoodItemApi food)
             {
                 this.food = food;
             }

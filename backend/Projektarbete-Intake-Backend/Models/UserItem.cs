@@ -27,14 +27,7 @@ namespace Projektarbete_Intake_Backend.Models
         public bool UseMetric { get; set; } = true;
 
         //Days
-        public FoodItem[] FoodItems = null;
-
-        public void FromRegisterItem(UserRegisterItem registerItem)
-        {
-            this.Id = registerItem.Id;
-            this.Email = registerItem.Email;
-            this.Hash = registerItem.Hash;
-        }
+        public FoodItemApi[] FoodItems = null;
 
         public void Populate(IntakeContext context)
         {

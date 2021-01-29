@@ -15,7 +15,7 @@ namespace Projektarbete_Intake_Backend.Models
         }
 
         public DbSet<UserItem> UserItems { get; set; }
-        public DbSet<FoodItem> FoodItems { get; set; }
+        public DbSet<FoodItemApi> FoodItems { get; set; }
         public DbSet<ApiItem> ApiItems { get; set; }
     }
 }

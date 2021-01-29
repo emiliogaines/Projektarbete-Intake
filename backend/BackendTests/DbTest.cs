@@ -25,19 +25,19 @@ namespace BackendTests
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
-                var one = new FoodItem
+                var one = new FoodItemApi
                 {
                     Name = "Pizza",
                     Calories = 1250
                 };
 
-                var two = new FoodItem
+                var two = new FoodItemApi
                 {
                     Name = "Taco",
                     Calories = 720
                 };
 
-                var three = new FoodItem
+                var three = new FoodItemApi
                 {
                     Name = "Monster Energy Drink",
                     Calories = 95

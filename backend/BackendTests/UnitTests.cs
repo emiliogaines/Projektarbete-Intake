@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Projektarbete_Intake_Backend.Controllers;
+using Projektarbete_Intake_Backend.Interfaces;
 using Projektarbete_Intake_Backend.Models;
 using Projektarbete_Intake_Backend.Response;
 using System;
@@ -10,9 +11,32 @@ using System.Threading.Tasks;
 
 namespace BackendTests
 {
+
+
     [TestClass]
     public class UnitTests : DbTest
     {
+        private class RegisterItem : IRegister
+        {
+            public long Id { get; set; }
+            public string PasswordAgain { get; set; }
+            public string Hash { get; set; }
+            public string Email { get; set; }
+            public string Password { get; set; }
+        }
+
+        private class LoginItem : ILogin
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
+        }
+
+        private class VerifyItem : IVerify
+        {
+            public string Email { get; set; }
+            public string Hash { get; set; }
+        }
+
         [TestMethod]
         public async Task ShouldRegisterWhenConditionsAreMet()
         {
@@ -22,7 +46,7 @@ namespace BackendTests
                 RegisterController registerController = new RegisterController(context);
                 UserController userController = new UserController(context);
 
-                UserRegisterItem incorrect_email_user = new UserRegisterItem
+                RegisterItem incorrect_email_user = new RegisterItem
                 {
                     Id = 0,
                     Email = "test@test",
@@ -30,7 +54,7 @@ namespace BackendTests
                     PasswordAgain = "testpwd123"
                 };
 
-                UserRegisterItem incorrect_password_user = new UserRegisterItem
+                RegisterItem incorrect_password_user = new RegisterItem
                 {
                     Id = 1,
                     Email = "test@test.test",
@@ -38,7 +62,7 @@ namespace BackendTests
                     PasswordAgain = "test"
                 };
 
-                UserRegisterItem non_matching_password_user = new UserRegisterItem
+                RegisterItem non_matching_password_user = new RegisterItem
                 {
                     Id = 2,
                     Email = "test@test.test",
@@ -46,7 +70,7 @@ namespace BackendTests
                     PasswordAgain = "test"
                 };
 
-                UserRegisterItem correct_user = new UserRegisterItem
+                RegisterItem correct_user = new RegisterItem
                 {
                     Id = 3,
                     Email = "test@test.test",
@@ -79,7 +103,7 @@ namespace BackendTests
                 RegisterController registerController = new RegisterController(context);
                 LoginController controller = new LoginController(context);
 
-                UserRegisterItem mock_user = new UserRegisterItem
+                RegisterItem mock_user = new RegisterItem
                 {
                     Id = 0,
                     Email = "test@test.test",
@@ -90,13 +114,13 @@ namespace BackendTests
                 // Act
                 await registerController.Post(mock_user);
 
-                var login_success = await controller.Post(new UserLoginItem
+                var login_success = await controller.Post(new LoginItem
                 {
                     Email = mock_user.Email,
                     Password = mock_user.Password
                 });
 
-                var login_fail = await controller.Post(new UserLoginItem
+                var login_fail = await controller.Post(new LoginItem
                 {
                     Email = "incorrect_email",
                     Password = mock_user.Password
@@ -119,17 +143,19 @@ namespace BackendTests
                 var loginController = new LoginController(context);
 
                 // Act
-                UserRegisterItem mock_user = new UserRegisterItem
+                RegisterItem mock_user = new RegisterItem
                 {
                     Email = "test@test.test",
                     Password = "testpwd123",
                     PasswordAgain = "testpwd123"
                 };
 
+                Console.WriteLine(mock_user);
+
                 await registerController.Post(mock_user);
                 var fetched_mock_user = loginController.FetchUser(mock_user.Email);
 
-                FoodItemSent mock_item_success = new FoodItemSent
+                FoodItemUserVerification mock_item_success = new FoodItemUserVerification
                 {
                     Id = 47,
                     Email = fetched_mock_user.Email,
@@ -138,7 +164,7 @@ namespace BackendTests
                     Calories = 47
                 };
 
-                FoodItemSent mock_item_fail = new FoodItemSent
+                FoodItemUserVerification mock_item_fail = new FoodItemUserVerification
                 {
                     Id = 48,
                     Email = fetched_mock_user.Email,
@@ -147,7 +173,7 @@ namespace BackendTests
                     Calories = 47
                 };
 
-                UserVerifyItem verified_mock_user = new UserVerifyItem
+                VerifyItem verified_mock_user = new VerifyItem
                 {
                     Email = fetched_mock_user.Email,
                     Hash = fetched_mock_user.Hash
@@ -179,7 +205,7 @@ namespace BackendTests
                 var controller = new FoodController(context);
 
                 // Act
-                FoodItem[] items = { controller.GetFoodItem(1).Result.Value, controller.GetFoodItem(2).Result.Value, controller.GetFoodItem(3).Result.Value };
+                FoodItemApi[] items = { controller.GetFoodItem(1).Result.Value, controller.GetFoodItem(2).Result.Value, controller.GetFoodItem(3).Result.Value };
 
                 // Assert
                 Assert.AreEqual(3, items.Length);

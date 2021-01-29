@@ -1,3 +1,6 @@
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.AssemblyInfoInputs.cache
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.AssemblyInfo.cs
+C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.csproj.CoreCompileInputs.cache
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\bin\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.exe
@@ -223,9 +226,6 @@ C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\back
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\bin\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.dll
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\bin\Debug\netcoreapp3.1\Projektarbete-Intake-Backend.pdb
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.csprojAssemblyReference.cache
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.AssemblyInfoInputs.cache
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.AssemblyInfo.cs
-C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.csproj.CoreCompileInputs.cache
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.csproj.CopyComplete
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.dll
 C:\Users\Mio\Documents\Web Development\Projektarbete\projektarbete-frontend\backend\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.pdb

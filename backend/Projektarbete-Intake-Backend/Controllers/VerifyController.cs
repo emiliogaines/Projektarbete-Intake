@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Projektarbete_Intake_Backend.Interfaces;
 using Projektarbete_Intake_Backend.Models;
 using Projektarbete_Intake_Backend.Response;
 using System;
@@ -21,7 +22,7 @@ namespace Projektarbete_Intake_Backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserLoginItem>> Post(FetchItem user)
+        public async Task<ActionResult<IVerify>> Post(IVerify user)
         {
             UserItem fetchedUser = FetchUser(user.Email);
             if (fetchedUser == null)
